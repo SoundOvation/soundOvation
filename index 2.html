@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soundingovation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.2s ease-in-out;
+    }
+    nav a:hover {
+      color: #000;
+    }
+    section {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #000;
+      padding-left: 0.5rem;
+    }
+    .portfolio audio, .portfolio iframe {
+      width: 100%;
+      margin: 1rem 0;
+    }
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    form button {
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Soundingovation</h1>
+    <nav>
+      <a href="#uvod">Úvod</a>
+      <a href="#onas">O nás</a>
+      <a href="#sluzby">Služby</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section id="uvod">
+    <h2>Úvod</h2>
+    <p>Profesionálny zvuk pre váš obraz. Voice-over, mix, sound design — to všetko pod jednou strechou.</p>
+  </section>
+
+  <section id="onas">
+    <h2>O nás</h2>
+    <p>Zatiaľ bez textu – pripravujeme.</p>
+  </section>
+
+  <section id="sluzby">
+    <h2>Služby</h2>
+    <ul>
+      <li>Voice-over nahrávky</li>
+      <li>Mixáž audiovizuálnych diel</li>
+      <li>Sound design</li>
+      <li>Mastering</li>
+    </ul>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <h2>Portfólio</h2>
+    <p>Ukážky zvuku:</p>
+    <audio controls src="#">Váš prehliadač nepodporuje prehrávanie audia.</audio>
+
+    <p>Ukážky videa:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ukážkové video" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <form>
+      <input type="text" placeholder="Vaše meno" required />
+      <input type="email" placeholder="Emailová adresa" required />
+      <textarea placeholder="Správa" rows="5" required></textarea>
+      <button type="submit">Odoslať</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Soundingovation. Všetky práva vyhradené.
+  </footer>
+</body>
+</html>
