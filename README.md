@@ -1,131 +1,444 @@
 <!DOCTYPE html>
-<html lang="sk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>soundOvation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Sound Designer & Live Mixer</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      body {
-        background: #ffffff;
-        color: #1a1a1a;
-        line-height: 1.6;
-      }
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #ff6b35;
+            --secondary-color: #2d2d2d;
+            --text-light: #ffffff;
+            --text-gray: #cccccc;
+            --bg-dark: #0f0f0f;
+        }
 
-      header {
-        padding: 3rem 2rem;
-        text-align: center;
-        background: linear-gradient(to right, #000000, #434343);
-        color: white;
-      }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
 
-      header h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-      }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-      nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        background: #f7f7f7;
-        padding: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
 
-      nav a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        transition: color 0.2s ease-in-out;
-      }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-      nav a:hover {
-        color: #000;
-      }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
 
-      section {
-        max-width: 900px;
-        margin: 4rem auto;
-        padding: 0 2rem;
-        border-left: 4px solid #000;
-      }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-      .placeholder {
-        height: 150px;
-        background: #f0f0f0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #999;
-        font-style: italic;
-        border-radius: 0.5rem;
-      }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
 
-      footer {
-        text-align: center;
-        padding: 2rem;
-        font-size: 0.9rem;
-        color: #888;
-        background: #f2f2f2;
-        margin-top: 3rem;
-      }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--text-light), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Wave Animation */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" fill="%23ff6b35" opacity="0.3"></path></svg>') repeat-x;
+            background-size: 1200px 120px;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1200px); }
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: var(--secondary-color);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-gray);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary-color);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            background: var(--secondary-color);
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .contact-form button {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #e55a2b;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+    <!-- Header -->
     <header>
-      <h1>soundOvation</h1>
+        <nav class="container">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-      <a href="#uvod">Úvod</a>
-      <a href="#onas">O nás</a>
-      <a href="#sluzby">Služby</a>
-      <a href="#portfolio">Portfólio</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-
-    <section id="uvod">
-      <h2>Úvod</h2>
-      <div class="placeholder">Obsah pripravujeme</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sound Designer & Live Mixer</h1>
+                <p>Creating immersive audio experiences that bring your projects to life. From film scores to live events, I craft the perfect sound for every moment.</p>
+                <a href="#services" class="cta-button">View My Services</a>
+            </div>
+        </div>
+        <div class="wave"></div>
     </section>
 
-    <section id="onas">
-      <h2>O nás</h2>
-      <div class="placeholder">Obsah pripravujeme</div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    [Your Professional Photo Here]
+                </div>
+                <div class="about-text">
+                    <p>With over [X] years of experience in sound design and live mixing, I've had the privilege of working on diverse projects ranging from independent films to major live events.</p>
+                    <p>My passion lies in creating audio landscapes that enhance storytelling and elevate live performances. I specialize in both studio production and real-time live mixing, bringing technical expertise and creative vision to every project.</p>
+                    <p>Whether you need a cinematic score, podcast audio enhancement, or live event mixing, I'm committed to delivering exceptional audio quality that exceeds expectations.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="sluzby">
-      <h2>Služby</h2>
-      <div class="placeholder">Obsah pripravujeme</div>
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Services & Packages</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Sound Design Suite</h3>
+                    <p>Complete audio design for films, games, and multimedia projects. Includes foley, ambient sounds, and musical scoring.</p>
+                    <div class="service-price">Starting at $500</div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Live Event Mixing</h3>
+                    <p>Professional live sound mixing for concerts, conferences, and events. Full setup and real-time audio management.</p>
+                    <div class="service-price">$300-800/event</div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Podcast Production</h3>
+                    <p>End-to-end podcast audio production including recording, editing, mixing, and mastering for professional results.</p>
+                    <div class="service-price">$150/episode</div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Custom Audio Branding</h3>
+                    <p>Create unique audio signatures, jingles, and brand sounds that make your business instantly recognizable.</p>
+                    <div class="service-price">Starting at $400</div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Mixing & Mastering</h3>
+                    <p>Professional mixing and mastering services for musicians and content creators seeking radio-ready sound quality.</p>
+                    <div class="service-price">$100-250/track</div>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Audio Consultation</h3>
+                    <p>Expert advice on audio equipment, studio setup, and production workflows to optimize your sound projects.</p>
+                    <div class="service-price">$75/hour</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="portfolio">
-      <h2>Portfólio</h2>
-      <div class="placeholder">Obsah pripravujeme</div>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">📧 your.email@example.com</div>
+                    <div class="contact-item">📱 +1 (555) 123-4567</div>
+                    <div class="contact-item">📍 Your City, State</div>
+                    <div class="contact-item">🎵 Available for projects worldwide</div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Project Type">
+                    <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
     </section>
 
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <div class="placeholder">Obsah pripravujeme</div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-      &copy; 2025 soundOvation. Všetky práva vyhradené.
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
     </footer>
-  </body>
-</html>
 
+    <script>
+        // Simple form handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
